@@ -1,0 +1,9 @@
+- hosts: webservers
+  vars:
+   - WelcomeMsg: "This is a Training Demo"
+
+  tasks:
+   - name: Setup nginx
+     apt: pkg=nginx state=installed
+   - name: Copy index file
+     template: src=index.html.j2 dest=/usr/share/nginx/html/index.html
